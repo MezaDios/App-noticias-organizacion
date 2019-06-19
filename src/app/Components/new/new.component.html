@@ -1,0 +1,26 @@
+<div class="col-md-12 d-inline-flex pt-3 align-item-stretch">
+  <div class="card mt-6 flex-fill col s6">
+    <div class="card-title text-center">
+      <img src="{{ image }}">
+      <h3>{{ title }}</h3><br>
+      <span> <strong><em>{{ author }}</em></strong> </span><br>
+      <span> {{ place }} </span>
+      <span class="badge badge-pill badge-warning ml-2">
+        {{ date }}
+      </span>
+    </div>
+    <div class="card-body">
+      {{ description }}
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <button type="button" (click)="openModal()" class="btn btn-success col col-6">
+          Editar
+        </button>
+        <button (click)="removeNew(id)" class="btn btn-danger col col-6">
+          Eliminar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

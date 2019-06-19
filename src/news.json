@@ -1,0 +1,28 @@
+{
+    "news": [
+        {
+            "title": "Noticia Ejemplo",
+            "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo iure ea ipsum laudantium atque omnis commodi molestias sapiente aut eaque excepturi fugiat voluptas deserunt voluptatum, repellendus nam quibusdam laborum mollitia.",
+            "author": "Anónimo",
+            "place": "Villa de Álvarez",
+            "date": "21-05-2019",
+            "img": "favicon.ico"
+        },
+        {
+            "title": "Noticia Ejemplo 2",
+            "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo iure ea ipsum laudantium atque omnis commodi molestias sapiente aut eaque excepturi fugiat voluptas deserunt voluptatum, repellendus nam quibusdam laborum mollitia.",
+            "author": "Anónimo",
+            "place": "Villa de Álvarez",
+            "date": "21-05-2019",
+            "img": "favicon.ico"
+        },
+        {
+            "title": "Noticia Ejemplo 3",
+            "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo iure ea ipsum laudantium atque omnis commodi molestias sapiente aut eaque excepturi fugiat voluptas deserunt voluptatum, repellendus nam quibusdam laborum mollitia.",
+            "author": "Anónimo",
+            "place": "Villa de Álvarez",
+            "date": "21-05-2019",
+            "img": "favicon.ico"
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+<app-nav-bar></app-nav-bar>
+
+<nav class="navbar navbar-dark bg-dark shadow-lg mb-3">
+  <a class="navbar-brand" routerLink="/home">
+    Noticias
+    <span class="badge badge-pill badge-light ml-2">
+      {{ news.length }}
+    </span>
+  </a>
+</nav>
+
+<br>
+
+<div class="App mb-2">
+
+  <div class="container">
+    <div class="row mt-12">
+      <app-form class="col-12"></app-form>
+
+      <div class="col-md-12 bg-dark mb-3 mt-3 rounded pb-3">
+        <div class="row">
+          <app-new class="col-md-6" [id]="New._id" [title]="New.title" [description]="New.description"
+            [author]="New.author" [image]="New.image" [place]="New.place" [date]="New.date" *ngFor="let New of news">
+          </app-new>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

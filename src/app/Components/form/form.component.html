@@ -1,0 +1,79 @@
+<div class="col-12 text-center">
+  <div class="card shadow">
+    <form class="card-body" [formGroup]="form" (ngSubmit)="form.valid && addNew()">
+      <div class="card-header mb-2">
+        <h1>Nueva Noticia</h1>
+      </div>
+      <div class="card-body">
+
+        <div class="form-group">
+          <input type="text" formControlName="title" class="form-control"
+            [ngClass]="{'is-invalid':form.get('title').touched && form.get('title').invalid}" placeholder="Titulo"
+            required />
+          <div *ngIf="form.get('title').touched && form.get('title').invalid" class="invalid-feedback">
+            <div>El titulo es requerido.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <textarea formControlName="description"
+            [ngClass]="{'is-invalid':form.get('description').touched && form.get('description').invalid}"
+            class="form-control" placeholder="Descripción" required></textarea>
+          <div *ngIf="form.get('description').touched && form.get('description').invalid" class="invalid-feedback">
+            <div>La descripción es requerida.</div>
+          </div>
+        </div>
+
+        Selecciona una imagen:
+        <div class="form-group">
+          <div class="custom-file">
+            <input type="file" formControlName="image"
+              [ngClass]="{'is-invalid':form.get('image').touched && form.get('image').invalid}"
+              class="custom-file-input" accept="image/*" id="validatedCustomFile" required />
+            <label class="custom-file-label" for="validatedCustomFile">Elegir imagen...</label>
+            <div *ngIf="form.get('image').touched && form.get('image').invalid" class="invalid-feedback">
+              <div>La imagen es requerida.</div>
+            </div>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="form-group">
+          <input type="text" formControlName="author" class="form-control"
+            [ngClass]="{'is-invalid':form.get('author').touched && form.get('author').invalid}" placeholder="Autor"
+            required />
+          <div *ngIf="form.get('author').touched && form.get('author').invalid" class="invalid-feedback">
+            <div>El autor es requerido.</div>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <input type="text" formControlName="place" class="form-control"
+            [ngClass]="{'is-invalid':form.get('place').touched && form.get('place').invalid}" placeholder="Lugar"
+            required />
+          <div *ngIf="form.get('place').touched && form.get('place').invalid" class="invalid-feedback">
+            <div>El lugar es requerido.</div>
+          </div>
+        </div>
+
+        Fecha:
+        <div class="form-group">
+          <input type="date" formControlName="date" class="form-control"
+            [ngClass]="{'is-invalid':form.get('date').touched && form.get('date').invalid}" placeholder="Fecha"
+            required />
+          <div *ngIf="form.get('date').touched && form.get('date').invalid" class="invalid-feedback">
+            <div>La fecha es requerida.</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="card-footer">
+        <button [disabled]="!form.valid" type="submit" class="btn btn-primary">
+          Guardar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
