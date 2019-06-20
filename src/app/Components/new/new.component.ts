@@ -30,7 +30,7 @@ export class NewComponent implements OnInit {
 
   constructor(private parent: AppComponent,
     private modalService: BsModalService,
-    private news: NewsComponent) {
+    public news: NewsComponent) {
   }
 
   removeNew() {

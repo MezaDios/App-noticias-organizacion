@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NewService } from '../../services/new.service';
 import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
-import { New } from 'src/app/models/New.model';
+import { New } from '../../models/new.model';
 import { AppComponent } from 'src/app/app.component';
 import { Response } from 'src/app/models/response';
 import { NewsComponent } from '../news/news.component';
+import { SaveImagesService } from 'src/app/services/save-images.service';
 
 
 @Component({
@@ -14,6 +15,8 @@ import { NewsComponent } from '../news/news.component';
   providers: [NewService]
 })
 export class FormComponent implements OnInit {
+
+  image;
 
   form = new FormGroup({
     title: new FormControl('', Validators.required),
@@ -26,9 +29,17 @@ export class FormComponent implements OnInit {
 
   model = this.parent.crudNews;
 
-  constructor(private parent: AppComponent, private news: NewsComponent) { }
+  constructor(private parent: AppComponent, private news: NewsComponent, private upload: SaveImagesService) { }
 
   ngOnInit() {
+  }
+
+  uploadImage() {
+    this.upload.loadImage({ image: this.form.get('image').value }).subscribe(
+      res => {
+        this.image = res;
+      }
+    );
   }
 
   addNew() {
@@ -39,7 +50,7 @@ export class FormComponent implements OnInit {
       place: this.form.get('place').value,
       date: this.form.get('date').value,
       description: this.form.get('description').value,
-      image: this.changeImageFormat(this.form.get('image').value)
+      image: this.changeImageFormat(this.image.file.filename)
     };
     this.model.postNew(values).subscribe((res: Response) => {
       console.log(res);

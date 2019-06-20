@@ -5,51 +5,77 @@
   </button>
 </div>
 <div class="modal-body">
-  <form class="card-body" #newForm="ngForm" (ngSubmit)="editNew(newForm)">
+  <form class="card-body" [formGroup]="form" (ngSubmit)="form.valid && editNew()">
+    <div class="card-header mb-2">
+      <h1>Modificar Noticia</h1>
+    </div>
     <div class="card-body">
-      <input #id="ngModel" [(ngModel)]="model.selectedNew.id" type="text" name="id" class="form-control" required
-        style="display: none" />
+
       <div class="form-group">
-        <input #title="ngModel" [(ngModel)]="model.selectedNew.title" type="text" name="title" class="form-control"
-          placeholder="Title" required />
+        <input type="text" formControlName="title" class="form-control"
+          [ngClass]="{'is-invalid':form.get('title').touched && form.get('title').invalid}" placeholder="Titulo"
+          required />
+        <div *ngIf="form.get('title').touched && form.get('title').invalid" class="invalid-feedback">
+          <div>El titulo es requerido.</div>
+        </div>
       </div>
 
       <div class="form-group">
-        <textarea #description="ngModel" [(ngModel)]="model.selectedNew.description" name="description"
-          class="form-control" placeholder="Descripcion" required></textarea>
+        <textarea formControlName="description"
+          [ngClass]="{'is-invalid':form.get('description').touched && form.get('description').invalid}"
+          class="form-control" placeholder="Descripción" required></textarea>
+        <div *ngIf="form.get('description').touched && form.get('description').invalid" class="invalid-feedback">
+          <div>La descripción es requerida.</div>
+        </div>
       </div>
 
       <div class="form-group">
         Selecciona una imagen:
         <div class="custom-file">
-          <input #image="ngModel" [(ngModel)]="model.selectedNew.image" type="file" name="image"
-            class="custom-file-input" accept="image/*" id="validatedCustomFile" required />
+          <input type="file" formControlName="image"
+            [ngClass]="{'is-invalid':form.get('image').touched && form.get('image').invalid}" class="custom-file-input"
+            accept="image/*" id="validatedCustomFile" required />
           <label class="custom-file-label" for="validatedCustomFile">Elegir imagen...</label>
-          <div class="invalid-feedback">Example invalid custom file feedback</div>
+          <div *ngIf="form.get('image').touched && form.get('image').invalid" class="invalid-feedback">
+            <div>La imagen es requerida.</div>
+          </div>
         </div>
       </div>
 
       <br>
 
       <div class="form-group">
-        <input #author="ngModel" [(ngModel)]="model.selectedNew.author" type="text" name="author" class="form-control"
-          placeholder="Autor" required />
+        <input type="text" formControlName="author" class="form-control"
+          [ngClass]="{'is-invalid':form.get('author').touched && form.get('author').invalid}" placeholder="Autor"
+          required />
+        <div *ngIf="form.get('author').touched && form.get('author').invalid" class="invalid-feedback">
+          <div>El autor es requerido.</div>
+        </div>
       </div>
 
+
       <div class="form-group">
-        <input #place="ngModel" [(ngModel)]="model.selectedNew.place" type="text" name="place" class="form-control"
-          placeholder="Lugar" required />
+        <input type="text" formControlName="place" class="form-control"
+          [ngClass]="{'is-invalid':form.get('place').touched && form.get('place').invalid}" placeholder="Lugar"
+          required />
+        <div *ngIf="form.get('place').touched && form.get('place').invalid" class="invalid-feedback">
+          <div>El lugar es requerido.</div>
+        </div>
       </div>
 
       <div class="form-group">
         Fecha:
-        <input #date="ngModel" [(ngModel)]="model.selectedNew.date" type="date" name="date" class="form-control"
-          placeholder="Fecha" required />
+        <input type="date" formControlName="date" class="form-control"
+          [ngClass]="{'is-invalid':form.get('date').touched && form.get('date').invalid}" placeholder="Fecha"
+          required />
+        <div *ngIf="form.get('date').touched && form.get('date').invalid" class="invalid-feedback">
+          <div>La fecha es requerida.</div>
+        </div>
       </div>
 
     </div>
     <div class="card-footer">
-      <button type="submit" class="btn btn-primary">
+      <button [disabled]="!form.valid" type="submit" class="btn btn-primary">
         Guardar
       </button>
     </div>

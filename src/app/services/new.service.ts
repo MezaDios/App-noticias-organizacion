@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { New } from '../models/New.model';
+import { New } from '../models/new.model';
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +27,8 @@ export class NewService {
     return this.http.post(this.URL_API, paramNew);
   }
 
-  putNew(paramNew: New) {
-    return this.http.put(`${this.URL_API}/${paramNew.id}`, paramNew);
+  putNew(id: string, paramNew: New) {
+    return this.http.put(`${this.URL_API}/${id}`, paramNew);
   }
 
   deleteNew(id: string) {

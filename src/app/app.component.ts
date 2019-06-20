@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NewService } from './services/new.service';
 import { LoginService } from './services/login.service';
+import { NewsComponent } from './Components/news/news.component';
 
 
 @Component({
