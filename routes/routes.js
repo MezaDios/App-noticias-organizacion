@@ -7,7 +7,7 @@ const multer = require('multer');
 const uuid = require('uuid');
 
 const storage = multer.diskStorage({
-    destination: path.join(__dirname, '../dist/noticias/IMGs'),
+    destination: path.join(__dirname, '../dist/Noticias/IMGs'),
     filename: (req, file, cb) => {
         cb(null, uuid() + path.extname(file.originalname).toLowerCase());
     }

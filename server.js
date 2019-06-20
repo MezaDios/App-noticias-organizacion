@@ -6,12 +6,12 @@ const cors = require('cors');
 const routes = require('./routes/routes');
 
 app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/dist/noticias/index.html'));
+    res.sendFile(path.join(__dirname + '/dist/Noticias/index.html'));
 });
 
 app.set('port', process.env.PORT || 8080);
 
-app.use(express.static(__dirname + '/dist/noticias'));
+app.use(express.static(__dirname + '/dist/Noticias'));
 
 app.use(routes);
 app.use(cors());
